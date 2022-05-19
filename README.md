@@ -5,7 +5,7 @@
  
 ## Authors
 
-- [@deepch](https://github.com/deepch/RTSPtoWeb)
+- [@deepch](https://github.com/deepch)
 
 
 ## Edited:

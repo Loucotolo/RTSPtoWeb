@@ -2,11 +2,6 @@
 ## Fork 
 
 - [@RTSPtoWeb](https://github.com/deepch/RTSPtoWeb)
- 
-## Authors
-
-- [@deepch](https://github.com/deepch)
-
 
 ## Edited:
 

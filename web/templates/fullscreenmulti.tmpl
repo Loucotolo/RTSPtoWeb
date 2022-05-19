@@ -80,11 +80,11 @@
             </li>
               {{ if .query.controls}}
             <li class="nav-item dropdown">
-              <a id="defaultPlayerMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">MSE</a>
+              <a id="defaultPlayerMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">WebRTC</a>
               <ul aria-labelledby="defaultPlayerMenu" class="dropdown-menu  custom-dropdown">
-                <li><a href="#" class="dropdown-item" onclick="defaultPlayer('mse',this)">MSE</a></li>
                 <li><a href="#" class="dropdown-item" onclick="defaultPlayer('hls',this)">HLS</a></li>
                 <li><a href="#" class="dropdown-item" onclick="defaultPlayer('webrtc',this)">WebRTC</a></li>
+                <li><a href="#" class="dropdown-item" onclick="defaultPlayer('mse',this)">MSE</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -381,7 +381,9 @@
     videoPlayerVar.find('video').removeClass('empty');
 
 
-    let playerType = $('#defaultPlayer').val();
+    let playerType = $('#defaultPlayerMenu').text();
+    playerType = playerType.toLowerCase();
+    //console.log("playerType: " +playerType);
     if (!!typePlayer) {
       playerType = typePlayer;
     }
@@ -439,8 +441,8 @@
       case 'mse':
       default:
 
-        players[index] = new msePlayer(uuid, videoPlayerVar, channel);
-        players[index].playMse();
+        players[index] = new WebRTCPlayer(uuid, videoPlayerVar, channel);
+        players[index].playWebrtc();
         break;
     }
 

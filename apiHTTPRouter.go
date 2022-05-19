@@ -35,6 +35,12 @@ func HTTPAPIServer() {
 	}
 
 	public.Use(CrossOrigin())
+
+	if !Storage.ServerHTTPDemo() && Storage.ServerHTTPLogin() != "" && Storage.ServerHTTPPassword() != "" {
+		public.Use(gin.BasicAuth(gin.Accounts{Storage.ServerHTTPLogin(): Storage.ServerHTTPPassword()}))
+
+	}
+
 	//Add private login password protect methods
 	privat := public.Group("/")
 	if Storage.ServerHTTPLogin() != "" && Storage.ServerHTTPPassword() != "" {
